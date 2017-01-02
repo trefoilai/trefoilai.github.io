@@ -1,0 +1,44 @@
+---
+title: "TC washing"
+author: "Hicham Zmarrou"
+date: 2017-01-02T14:13:14-05:00
+categories: ["R"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+# R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+fit <- lm(dist ~ speed, data = cars)
+fit
+```
+
+# Including Plots
+
+These notes are a summary of the suggested method to measure the impact of a TC washing on a response metric of interest (e.g., turbine efficiency indicator, compressor  efficiency indicator or the exhaust temperature). The causal impact of a TC washing is the difference between the observed value of the response (PI) and the (unobserved) value that would have been obtained under the alternative treatment (not washing). In the present setting the response variable is a time series, so the causal effect of interest is the difference between the observed series and the series that would have been observed had the TC washing not taken place.
+
+
+
+### Analyse of TC wahsing impact on the event *2013-11-13 08:46 engine_id 300230650*
+
+The method followed here is inspired from the field of health and clinical studies and from the field of marketing analytics where impact of intervention is a popular subject. Examples are measurement of the impact of medical intervention or the impact of an advertising campaign. The purpose of this document is to describe a robust approach to intervention analysis based on two key **R** packages: the **CausalImpact** package written by Kay Brodersen at Google and the **dtw ** package available in CRAN. 
+
+The analytically method typically go through two steps, each of which can involve multiple analytically decisions:
+
+* Finding matching control signals or time-series for the signal/time series where the event took place using time series matching based on historical  data prior to the event (the âpre periodâ).
+* Analyzing the causal impact of the event by comparing the observed data for the test and control signals following the event (the âpost periodâ), while factoring in differences between the signals prior to the event.
+
+For presentation purposes we apply these methods to a number of detected TC washing for the engine with engine id 300230650. The test signal in this example is the exhaust gas temperature, TC inlet (tag with code TE511).  
+We can summarize this workflow as follows:
+
+*  Pre-screening step: find the best control signal for each signal in the data set using dynamic time warping. This step merely creates a list of candidate signals/indicators; the final signals used for the post-event inference will be decided in the next step.
+
+* Inference step: fit a Bayesian structural time series model that utilizes the control signals identified in step 1 as predictors. Based on this model, create a synthetic control series by producing a counter-factual prediction for the post period assuming that the event did not take place. We can then calculate the difference between the synthetic control and the test signal for the post-intervention period â which is the estimated impact of the event â and compare to the posterior interval to gauge uncertainty.

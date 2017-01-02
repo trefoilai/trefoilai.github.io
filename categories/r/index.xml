@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>r on Hugo Future Imperfect</title>
+    <link>/categories/r/index.xml</link>
+    <description>Recent content in r on Hugo Future Imperfect</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>TC washing</title>
+      <link>/post/newContent/</link>
+      <pubDate>Mon, 02 Jan 2017 14:13:14 -0500</pubDate>
+      
+      <guid>/post/newContent/</guid>
+      <description>&lt;!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;div id=&#34;r-markdown&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;R Markdown&lt;/h1&gt;
+&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&#34;http://rmarkdown.rstudio.com&#34; class=&#34;uri&#34;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can embed an R code chunk like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(cars)
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+fit &amp;lt;- lm(dist ~ speed, data = cars)
+fit
+## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Coefficients:
+## (Intercept)        speed  
+##     -17.579        3.932&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;including-plots&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Including Plots&lt;/h1&gt;
+&lt;p&gt;These notes are a summary of the suggested method to measure the impact of a TC washing on a response metric of interest (e.g., turbine efficiency indicator, compressor efficiency indicator or the exhaust temperature). The causal impact of a TC washing is the difference between the observed value of the response (PI) and the (unobserved) value that would have been obtained under the alternative treatment (not washing). In the present setting the response variable is a time series, so the causal effect of interest is the difference between the observed series and the series that would have been observed had the TC washing not taken place.&lt;/p&gt;
+&lt;div id=&#34;analyse-of-tc-wahsing-impact-on-the-event-2013-11-13-0846-engine_id-300230650&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Analyse of TC wahsing impact on the event &lt;em&gt;2013-11-13 08:46 engine_id 300230650&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;The method followed here is inspired from the field of health and clinical studies and from the field of marketing analytics where impact of intervention is a popular subject. Examples are measurement of the impact of medical intervention or the impact of an advertising campaign. The purpose of this document is to describe a robust approach to intervention analysis based on two key &lt;strong&gt;R&lt;/strong&gt; packages: the &lt;strong&gt;CausalImpact&lt;/strong&gt; package written by Kay Brodersen at Google and the &lt;strong&gt;dtw &lt;/strong&gt; package available in CRAN.&lt;/p&gt;
+&lt;p&gt;The analytically method typically go through two steps, each of which can involve multiple analytically decisions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Finding matching control signals or time-series for the signal/time series where the event took place using time series matching based on historical data prior to the event (the âpre periodâ).&lt;/li&gt;
+&lt;li&gt;Analyzing the causal impact of the event by comparing the observed data for the test and control signals following the event (the âpost periodâ), while factoring in differences between the signals prior to the event.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For presentation purposes we apply these methods to a number of detected TC washing for the engine with engine id 300230650. The test signal in this example is the exhaust gas temperature, TC inlet (tag with code TE511).&lt;br /&gt;
+We can summarize this workflow as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Pre-screening step: find the best control signal for each signal in the data set using dynamic time warping. This step merely creates a list of candidate signals/indicators; the final signals used for the post-event inference will be decided in the next step.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Inference step: fit a Bayesian structural time series model that utilizes the control signals identified in step 1 as predictors. Based on this model, create a synthetic control series by producing a counter-factual prediction for the post period assuming that the event did not take place. We can then calculate the difference between the synthetic control and the test signal for the post-intervention period â which is the estimated impact of the event â and compare to the posterior interval to gauge uncertainty.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+&lt;!-- BLOGDOWN-HEAD
+
+
+
+
+
+
+/BLOGDOWN-HEAD --&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>/post/hello-world/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>/post/hello-world/</guid>
+      <description>&lt;!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;div id=&#34;r-markdown&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;R Markdown&lt;/h1&gt;
+&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&#34;http://rmarkdown.rstudio.com&#34; class=&#34;uri&#34;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can embed an R code chunk like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(cars)
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+fit &amp;lt;- lm(dist ~ speed, data = cars)
+fit
+## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Coefficients:
+## (Intercept)        speed  
+##     -17.579        3.932&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;including-plots&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Including Plots&lt;/h1&gt;
+&lt;p&gt;You can also embed plots. See Figure &lt;a href=&#34;#fig:pie&#34;&gt;1&lt;/a&gt; for example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c(&amp;#39;Sky&amp;#39;, &amp;#39;Sunny side of pyramid&amp;#39;, &amp;#39;Shady side of pyramid&amp;#39;),
+  col = c(&amp;#39;#0292D8&amp;#39;, &amp;#39;#F7EA39&amp;#39;, &amp;#39;#C4B632&amp;#39;),
+  init.angle = -50, border = NA
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;#####../content/post/hello-world_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: A fancy pie chart.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+&lt;!-- BLOGDOWN-HEAD
+
+
+
+
+
+
+/BLOGDOWN-HEAD --&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
